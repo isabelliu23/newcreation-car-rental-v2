@@ -41,6 +41,38 @@
             padding: 0 24px;
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
         /* Header */
         header {
             padding: 60px 0 40px;
@@ -379,122 +411,167 @@
             .hero h2 {
                 font-size: 1.4rem;
             }
+
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
     <div class="container">
         <header>
             <div class="logo">New Creation <span>Era</span></div>
-            <p class="tagline">Premium Cross-Border Limousine Service</p>
+            <p class="tagline" data-lang="zh">Premium Cross-Border Limousine Service</p>
+            <p class="tagline" data-lang="en" style="display:none">Premium Cross-Border Limousine Service</p>
             <div class="divider"></div>
         </header>
 
         <section class="hero">
-            <h2>粵港澳跨境七人商務轎車</h2>
-            <p>Toyota Alphard 旗艦版 · <span class="highlight">三地車牌</span></p>
+            <h2 data-lang="zh">粵港澳跨境七人商務轎車</h2>
+            <h2 data-lang="en" style="display:none">Cross-Border 7-Seater Luxury Vehicle</h2>
+            
+            <p data-lang="zh">Toyota Alphard 旗艦版 · <span class="highlight">三地車牌</span></p>
+            <p data-lang="en">Toyota Alphard Executive · <span class="highlight">HK/Macau/China Plates</span></p>
         </section>
 
         <section class="services">
             <div class="service-card">
                 <div class="number">01</div>
-                <h3>機場接送</h3>
-                <p>香港 · 澳門 · 內地機場</p>
+                <h3 data-lang="zh">機場接送</h3>
+                <h3 data-lang="en" style="display:none">Airport Transfer</h3>
+                <p data-lang="zh">香港 · 澳門 · 內地機場</p>
+                <p data-lang="en" style="display:none">Hong Kong · Macau · China</p>
             </div>
             <div class="service-card">
                 <div class="number">02</div>
-                <h3>包車旅遊</h3>
-                <p>粵港澳跨境自由行</p>
+                <h3 data-lang="zh">包車旅遊</h3>
+                <h3 data-lang="en" style="display:none">Chartered Tour</h3>
+                <p data-lang="zh">粵港澳跨境自由行</p>
+                <p data-lang="en" style="display:none">HK/Macau/China Free Tour</p>
             </div>
             <div class="service-card">
                 <div class="number">03</div>
-                <h3>商務接送</h3>
-                <p>會議 · 接待 · 考察</p>
+                <h3 data-lang="zh">商務接送</h3>
+                <h3 data-lang="en" style="display:none">Business Transfer</h3>
+                <p data-lang="zh">會議 · 接待 · 考察</p>
+                <p data-lang="en" style="display:none">Meeting · Reception · Inspection</p>
             </div>
         </section>
 
         <section class="booking-section">
-            <h2>預約訂車</h2>
-            <p class="subtitle">24小時服務 · 全年不休</p>
+            <h2 data-lang="zh">預約訂車</h2>
+            <h2 data-lang="en" style="display:none">Book Now</h2>
+            
+            <p class="subtitle" data-lang="zh">24小時服務 · 全年不休</p>
+            <p class="subtitle" data-lang="en" style="display:none">24/7 Service · 365 Days a Year</p>
 
             <form id="bookingForm">
                 <div class="form-row">
                     <div class="form-group">
-                       姓名 <span class="required">*</span></label>
-                        <input type="text" name="name" placeholder="您的姓名" required>
+                        <label data-lang="zh">姓名 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Name <span class="required">*</span></label>
+                        <input type="text" name="name" data-placeholder-zh="您的姓名" data-placeholder-en="Your name" placeholder="您的姓名" required>
                     </div>
                     <div class="form-group">
-                        <label>電話號碼 <span class="required">*</span></label>
-                        <input type="tel" name="phone" placeholder="+852 0000 0000" required>
+                        <label data-lang="zh">電話號碼 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Phone <span class="required">*</span></label>
+                        <input type="tel" name="phone" data-placeholder-zh="+852 0000 0000" data-placeholder-en="+852 0000 0000" placeholder="+852 0000 0000" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>WeChat ID</label>
-                        <input type="text" name="wechat_id" placeholder="WeChat ID (可選)">
+                        <label data-lang="zh">WeChat ID</label>
+                        <label data-lang="en" style="display:none">WeChat ID</label>
+                        <input type="text" name="wechat_id" data-placeholder-zh="WeChat ID (可選)" data-placeholder-en="WeChat ID (Optional)" placeholder="WeChat ID (可選)">
                     </div>
                     <div class="form-group">
-                        <label>包車日期 <span class="required">*</span></label>
+                        <label data-lang="zh">包車日期 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Date <span class="required">*</span></label>
                         <input type="date" name="pickup_date" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>人數 <span class="required">*</span></label>
-                        <input type="number" name="passengers" min="1" max="7" placeholder="1-7人" required>
+                        <label data-lang="zh">人數 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Passengers <span class="required">*</span></label>
+                        <input type="number" name="passengers" data-placeholder-zh="1-7人" data-placeholder-en="1-7" placeholder="1-7人" min="1" max="7" required>
                     </div>
                     <div class="form-group">
-                        <label>證件類別</label>
+                        <label data-lang="zh">證件類別</label>
+                        <label data-lang="en" style="display:none">ID Type</label>
                         <select name="id_type">
-                            <option value="回鄉證">回鄉證</option>
-                            <option value="護照">護照</option>
-                            <option value="身份證">身份證</option>
-                            <option value="其他">其他</option>
+                            <option value="回鄉證" data-lang="zh">回鄉證</option>
+                            <option value="回鄉證" data-lang="en">Exit & Return Permit</option>
+                            <option value="護照" data-lang="zh">護照</option>
+                            <option value="護照" data-lang="en">Passport</option>
+                            <option value="身份證" data-lang="zh">身份證</option>
+                            <option value="身份證" data-lang="en">HKID</option>
+                            <option value="其他" data-lang="zh">其他</option>
+                            <option value="其他" data-lang="en">Other</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>出發地點 <span class="required">*</span></label>
-                        <input type="text" name="pickup_location" placeholder="上車地點" required>
+                        <label data-lang="zh">出發地點 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Pickup Location <span class="required">*</span></label>
+                        <input type="text" name="pickup_location" data-placeholder-zh="上車地點" data-placeholder-en="Pickup location" placeholder="上車地點" required>
                     </div>
                     <div class="form-group">
-                        <label>目的地 <span class="required">*</span></label>
-                        <input type="text" name="dropoff_location" placeholder="目的地" required>
+                        <label data-lang="zh">目的地 <span class="required">*</span></label>
+                        <label data-lang="en" style="display:none">Destination <span class="required">*</span></label>
+                        <input type="text" name="dropoff_location" data-placeholder-zh="目的地" data-placeholder-en="Destination" placeholder="目的地" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>往返</label>
+                        <label data-lang="zh">往返</label>
+                        <label data-lang="en" style="display:none">Round Trip</label>
                         <select name="round_trip">
-                            <option value="單程">單程</option>
-                            <option value="來回">來回</option>
+                            <option value="單程" data-lang="zh">單程</option>
+                            <option value="單程" data-lang="en">One Way</option>
+                            <option value="來回" data-lang="zh">來回</option>
+                            <option value="來回" data-lang="en">Round Trip</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>特別要求</label>
-                        <input type="text" name="notes" placeholder="其他需求 (可選)">
+                        <label data-lang="zh">特別要求</label>
+                        <label data-lang="en" style="display:none">Special Requests</label>
+                        <input type="text" name="notes" data-placeholder-zh="其他需求 (可選)" data-placeholder-en="Other requests (Optional)" placeholder="其他需求 (可選)">
                     </div>
                 </div>
 
-                <button type="submit" class="btn">提交預約</button>
+                <button type="submit" class="btn" data-lang="zh">提交預約</button>
+                <button type="submit" class="btn" data-lang="en" style="display:none">Submit Booking</button>
                 <div id="status" class="status"></div>
             </form>
         </section>
 
         <section class="contact">
-            <h2>聯絡我們</h2>
+            <h2 data-lang="zh">聯絡我們</h2>
+            <h2 data-lang="en" style="display:none">Contact Us</h2>
+            
             <div class="contact-grid">
                 <div class="contact-item">
-                    <div class="label">香港</div>
+                    <div class="label" data-lang="zh">香港</div>
+                    <div class="label" data-lang="en" style="display:none">Hong Kong</div>
                     <div class="value">+852 6066 2635</div>
                 </div>
                 <div class="contact-item">
-                    <div class="label">內地</div>
+                    <div class="label" data-lang="zh">內地</div>
+                    <div class="label" data-lang="en" style="display:none">China</div>
                     <div class="value">+86 147 1460 5030</div>
                 </div>
                 <div class="contact-item">
@@ -502,16 +579,62 @@
                     <div class="value">enquiry@newcreationera.com.hk</div>
                 </div>
             </div>
-            <a href="https://wa.me/85260662635" class="whatsapp-btn">WhatsApp 查詢</a>
+            
+            <a href="https://wa.me/85260662635" class="whatsapp-btn" data-lang="zh">WhatsApp 查詢</a>
+            <a href="https://wa.me/85260662635" class="whatsapp-btn" data-lang="en" style="display:none">WhatsApp Us</a>
         </section>
 
         <footer>
             <p>&copy; 2026 新創世紀有限公司</p>
-            <p>粵港澳跨境七人商務車服務</p>
+            <p data-lang="zh">粵港澳跨境七人商務車服務</p>
+            <p data-lang="en" style="display:none">Cross-Border 7-Seater Luxury Vehicle Service</p>
         </footer>
     </div>
 
     <script>
+        // Language Toggle
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'zh';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update all elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.dataset.lang === lang ? '' : 'none';
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-placeholder-zh]').forEach(el => {
+                el.placeholder = lang === 'zh' ? el.dataset.placeholderZh : el.dataset.placeholderEn;
+            });
+
+            // Update select options
+            document.querySelectorAll('select[name="id_type"] option').forEach(opt => {
+                if (opt.dataset.lang && opt.dataset.lang !== lang) {
+                    opt.style.display = 'none';
+                } else if (opt.dataset.lang === lang) {
+                    opt.style.display = '';
+                }
+            });
+            
+            // Update document title
+            if (lang === 'en') {
+                document.title = 'New Creation Era | Cross-Border Limousine Service';
+            } else {
+                document.title = '新創世紀有限公司 | 跨境七人商務車服務';
+            }
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
         // Supabase配置
         const supabaseUrl = 'https://okdydoqihizmsaiqobde.supabase.co';
         const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rZHlkb3FpaGl6bXNhaXFvYmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTQyNjUsImV4cCI6MjA4OTU5MDI2NX0.xwXJXnhFLhz4erZ3Mib1nek4OJAt2hCpLuUDXE189No';
@@ -527,7 +650,7 @@
             const submitBtn = form.querySelector('.btn');
             
             submitBtn.disabled = true;
-            submitBtn.textContent = '提交中...';
+            submitBtn.textContent = currentLang === 'zh' ? '提交中...' : 'Submitting...';
             
             try {
                 const { data: customer, error: customerError } = await supabase
@@ -557,17 +680,19 @@
                 
                 if (bookingError) throw bookingError;
                 
-                statusDiv.textContent = '預約成功！我們會盡快聯絡您。';
+                statusDiv.textContent = currentLang === 'zh' ? '預約成功！我們會盡快聯絡您。' : 'Booking successful! We will contact you soon.';
                 statusDiv.className = 'status show success';
                 form.reset();
                 
             } catch (error) {
                 console.error('Error:', error);
-                statusDiv.textContent = '預約失敗，請直接聯絡我們：+852 6066 2635';
+                statusDiv.textContent = currentLang === 'zh' 
+                    ? '預約失敗，請直接聯絡我們：+852 6066 2635' 
+                    : 'Booking failed. Please contact us: +852 6066 2635';
                 statusDiv.className = 'status show error';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.textContent = '提交預約';
+                submitBtn.textContent = currentLang === 'zh' ? '提交預約' : 'Submit Booking';
             }
         });
     </script>
