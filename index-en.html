@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Creation Era | Cross-Border Luxury Vehicle Service</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --gold: #c9a962;
+            --gold-light: #e5d4a1;
+            --gold-dark: #a68b4b;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --border: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .lang-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* Header */
+        header {
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+            margin: 24px auto;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .hero .highlight {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin: 40px 0;
+        }
+
+        .service-card {
+            background: var(--bg-secondary);
+            padding: 40px 24px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .service-card:hover {
+            background: var(--bg-card);
+        }
+
+        .service-card .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            opacity: 0.6;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .service-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background: var(--bg-secondary);
+            padding: 48px;
+            margin: 40px 0;
+        }
+
+        .booking-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .booking-section .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group label .required {
+            color: var(--gold);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .form-group input::placeholder {
+            color: #444;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23888888' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+        }
+
+        .form-group select option {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .status {
+            padding: 16px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .status.show {
+            display: block;
+        }
+
+        .status.success {
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+        }
+
+        .status.error {
+            background: rgba(255, 107, 107, 0.1);
+            border: 1px solid #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        /* Contact */
+        .contact {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item .label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-item .value {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .contact-item .value a {
+            color: var(--gold);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item .value a:hover {
+            color: var(--gold-light);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background: var(--gold);
+            color: var(--bg-primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        footer p {
+            margin-bottom: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .booking-section {
+                padding: 32px 24px;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .lang-toggle {
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="New Creation Era" style="max-width: 280px; margin-bottom: 16px;">
+            
+            <p class="tagline">Premium Cross-Border Limousine Service</p>
+            <div class="divider"></div>
+        </header>
+
+        <section class="hero">
+            
+            <h2>Cross-Border Luxury 7-Seater MPV</h2>
+            
+            
+            <p>Toyota Alphard Executive · <span class="highlight">HK/Macau/China Plates</span></p>
+        </section>
+
+        <section class="services">
+            <div class="service-card">
+                <div class="number">01</div>
+                
+                <h3>Airport Transfer</h3>
+                
+                <p>Hong Kong · Macau · China</p>
+            </div>
+            <div class="service-card">
+                <div class="number">02</div>
+                
+                <h3>Chartered Tour</h3>
+                
+                <p>HK/Macau/China Free Tour</p>
+            </div>
+            <div class="service-card">
+                <div class="number">03</div>
+                
+                <h3>Business Transfer</h3>
+                
+                <p>Meeting · Reception · Inspection</p>
+            </div>
+        </section>
+
+        <section class="booking-section">
+            
+            <h2>Book a Ride</h2>
+            
+            
+            <p class="subtitle">24/7 Service · 365 Days a Year</p>
+
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        
+                        <label>Name <span class="required">*</span></label>
+                        <input type="text" name="name" data-placeholder-zh="您的姓名" data-placeholder-en="Your name" placeholder="您的姓名" required>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Phone <span class="required">*</span></label>
+                        <input type="tel" name="phone" data-placeholder-zh="+852 0000 0000" data-placeholder-en="+852 0000 0000" placeholder="+852 0000 0000" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        
+                        <label>WeChat ID</label>
+                        <input type="text" name="wechat_id" data-placeholder-zh="WeChat ID (可選)" data-placeholder-en="WeChat ID (Optional)" placeholder="WeChat ID (可選)">
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Date <span class="required">*</span></label>
+                        <input type="date" name="pickup_date" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        
+                        <label>Passengers <span class="required">*</span></label>
+                        <input type="number" name="passengers" data-placeholder-zh="1-7人" data-placeholder-en="1-7" placeholder="1-7人" min="1" max="7" required>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>ID Type</label>
+                        <select name="id_type">
+                            
+                            <option value="回鄉證">Exit & Return Permit</option>
+                            
+                            <option value="護照">Passport</option>
+                            
+                            <option value="身份證">HKID</option>
+                            
+                            <option value="其他">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        
+                        <label>Pickup Location <span class="required">*</span></label>
+                        <input type="text" name="pickup_location" data-placeholder-zh="上車地點" data-placeholder-en="Pickup location" placeholder="上車地點" required>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Destination <span class="required">*</span></label>
+                        <input type="text" name="dropoff_location" data-placeholder-zh="目的地" data-placeholder-en="Destination" placeholder="目的地" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        
+                        <label>Round Trip</label>
+                        <select name="round_trip">
+                            
+                            <option value="單程">One Way</option>
+                            
+                            <option value="來回">Round Trip</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        
+                        <label>Special Requests</label>
+                        <input type="text" name="notes" data-placeholder-zh="其他需求 (可選)" data-placeholder-en="Other requests (Optional)" placeholder="其他需求 (可選)">
+                    </div>
+                </div>
+
+                
+                <button type="submit" class="btn">Submit Booking</button>
+                <div id="status" class="status"></div>
+            </form>
+        </section>
+
+        <section class="contact">
+            
+            <h2>Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    
+                    <div class="label">Hong Kong</div>
+                    <div class="value">+852 6066 2635</div>
+                </div>
+                <div class="contact-item">
+                    
+                    <div class="label">China</div>
+                    <div class="value">+86 147 1460 5030</div>
+                </div>
+                <div class="contact-item">
+                    
+                    <div class="label">Email</div>
+                    <div class="value">enquiry@newcreationera.com.hk</div>
+                </div>
+            </div>
+            
+            
+            <a href="https://wa.me/85260662635" class="whatsapp-btn">WhatsApp Us</a>
+        </section>
+
+        <footer>
+            
+            <p>&copy; 2026 New Creation Era</p>
+            
+            <p>Cross-Border 7-Seater Luxury Vehicle Service</p>
+        </footer>
+    </div>
+
+    <script>
+        // Language Toggle
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'zh';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update buttons
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update all elements
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.dataset.lang === lang ? '' : 'none';
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-placeholder-zh]').forEach(el => {
+                el.placeholder = lang === 'zh' ? el.dataset.placeholderZh : el.dataset.placeholderEn;
+            });
+
+            // Update select options
+            document.querySelectorAll('select[name="id_type"] option').forEach(opt => {
+                if (opt.dataset.lang && opt.dataset.lang !== lang) {
+                    opt.style.display = 'none';
+                } else if (opt.dataset.lang === lang) {
+                    opt.style.display = '';
+                }
+            });
+            
+            // Update document title
+            if (lang === 'en') {
+                document.title = 'New Creation Era | Cross-Border Limousine Service';
+            } else {
+                document.title = '新創世紀有限公司 | 跨境七人商務車服務';
+            }
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+        });
+
+        // Supabase配置
+        const supabaseUrl = 'https://okdydoqihizmsaiqobde.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9rZHlkb3FpaGl6bXNhaXFvYmRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTQyNjUsImV4cCI6MjA4OTU5MDI2NX0.xwXJXnhFLhz4erZ3Mib1nek4OJAt2hCpLuUDXE189No';
+        
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        // 處理表單提交
+        document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const form = e.target;
+            const statusDiv = document.getElementById('status');
+            const submitBtn = form.querySelector('.btn');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'zh' ? '提交中...' : 'Submitting...';
+            
+            try {
+                const { data: customer, error: customerError } = await supabase
+                    .from('customers')
+                    .insert({
+                        name: form.name.value,
+                        phone: form.phone.value,
+                        wechat_id: form.wechat_id.value || null
+                    })
+                    .select()
+                    .single();
+                
+                if (customerError) throw customerError;
+                
+                const { data: booking, error: bookingError } = await supabase
+                    .from('bookings')
+                    .insert({
+                        customer_id: customer.id,
+                        pickup_location: form.pickup_location.value,
+                        dropoff_location: form.dropoff_location.value,
+                        pickup_date: new Date(form.pickup_date.value).toISOString(),
+                        notes: `${form.passengers.value}人 | ${form.id_type.value} | ${form.round_trip.value}\n${form.notes.value || ''}`,
+                        status: 'pending'
+                    })
+                    .select()
+                    .single();
+                
+                if (bookingError) throw bookingError;
+                
+                statusDiv.textContent = currentLang === 'zh' ? '預約成功！我們會盡快聯絡您。' : 'Booking successful! We will contact you soon.';
+                statusDiv.className = 'status show success';
+                form.reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                statusDiv.textContent = currentLang === 'zh' 
+                    ? '預約失敗，請直接聯絡我們：+852 6066 2635' 
+                    : 'Booking failed. Please contact us: +852 6066 2635';
+                statusDiv.className = 'status show error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = currentLang === 'zh' ? '提交預約' : 'Submit Booking';
+            }
+        });
+    </script>
+</body>
+</html>
