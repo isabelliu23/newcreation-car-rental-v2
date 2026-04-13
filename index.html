@@ -486,9 +486,114 @@
             opacity: 1;
             transform: translateX(0);
         }
+
+        /* Moving Background - Gold Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(201, 169, 98, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 15s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 18s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; animation-duration: 12s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 1s; animation-duration: 20s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 3s; animation-duration: 16s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 5s; animation-duration: 14s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 17s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 1.5s; animation-duration: 13s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: 4.5s; animation-duration: 19s; }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Hero Section Animation */
+        .hero {
+            animation: heroFade 1s ease-out;
+        }
+        @keyframes heroFade {
+            from { opacity: 0; transform: scale(1.05); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .hero h1 {
+            animation: slideUp 0.8s ease-out 0.2s backwards;
+        }
+        .hero p {
+            animation: slideUp 0.8s ease-out 0.4s backwards;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Button/Icon Hover Effects */
+        .btn {
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(201, 169, 98, 0.3);
+        }
+        .btn:active {
+            transform: translateY(0);
+        }
+        .service-card, .fleet-card {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover, .fleet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .lang-toggle .lang-btn {
+            transition: all 0.3s ease;
+        }
+        .lang-toggle .lang-btn:hover {
+            background: #c9a962;
+            color: #0a0a0a;
+        }
+
+        /* Car Slide Animation */
+        .fleet-cards {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            animation: slideIn 0.8s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
 </style>
 </head>
 <body>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <div class="loader" id="loader">
         <div class="loader-spinner"></div>
         <div class="loader-text">新創世紀</div>
