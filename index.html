@@ -35,7 +35,7 @@
             min-height: 100vh;
         }
 
-        .container {
+        .container { position: relative; z-index: 2; 
             max-width: 900px;
             margin: 0 auto;
             padding: 0 24px;
@@ -109,7 +109,7 @@
         }
 
         /* Hero */
-        .hero {
+        .hero { position: relative; z-index: 2; 
             text-align: center;
             padding: 60px 0;
         }
@@ -134,7 +134,7 @@
         }
 
         /* Services */
-        .services {
+        .services { position: relative; z-index: 2; 
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1px;
@@ -157,7 +157,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: var(--gold);
-            opacity: 0.6;
+            opacity: 0.8;
             margin-bottom: 16px;
         }
 
@@ -391,7 +391,7 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .services {
+            .services { position: relative; z-index: 2; 
                 grid-template-columns: 1fr;
             }
 
@@ -459,7 +459,11 @@
         }
 
         /* Scroll Animations */
-        .fade-in {
+        
+        .fade-in { opacity: 0; transform: translateY(40px); }
+        .fade-in-left { opacity: 0; transform: translateX(-40px); }
+        .fade-in-right { opacity: 0; transform: translateX(40px); }
+.fade-in {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -488,7 +492,7 @@
         }
 
         /* Moving Background - Gold Particles */
-        .particles {
+        .particles { z-index: 1; 
             position: fixed;
             top: 0;
             left: 0;
@@ -502,7 +506,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(201, 169, 98, 0.3);
+            background: rgba(201, 169, 98, 0.6);
             border-radius: 50%;
             animation: float 15s infinite;
         }
@@ -517,13 +521,13 @@
         .particle:nth-child(9) { left: 90%; animation-delay: 4.5s; animation-duration: 19s; }
         @keyframes float {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
             100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
         }
 
         /* Hero Section Animation */
-        .hero {
+        .hero { position: relative; z-index: 2; 
             animation: heroFade 1s ease-out;
         }
         @keyframes heroFade {
@@ -547,7 +551,7 @@
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(201, 169, 98, 0.3);
+            box-shadow: 0 5px 20px rgba(201, 169, 98, 0.6);
         }
         .btn:active {
             transform: translateY(0);
@@ -891,7 +895,7 @@
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.1
+            threshold: 0.05
         };
 
         const observer = new IntersectionObserver((entries) => {
