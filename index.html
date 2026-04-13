@@ -417,9 +417,54 @@
                 right: 10px;
             }
         }
-    </style>
+    
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #1a1a1a;
+            border-top: 3px solid #c9a962;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .loader-text {
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            color: #c9a962;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+</style>
 </head>
 <body>
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">新創世紀</div>
+    </div>
+
     <!-- Language Toggle -->
     <div class="lang-toggle">
         <button class="lang-btn active" data-lang="zh">中文</button>
@@ -696,6 +741,14 @@
                 submitBtn.disabled = false;
                 submitBtn.textContent = currentLang === 'zh' ? '提交預約' : 'Submit Booking';
             }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
         });
     </script>
 </body>
