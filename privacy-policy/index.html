@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <title>私隱政策 | Privacy Policy | New Creation Era Limited</title>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --bg-card: #1a1a1a;
+            --gold: #c9a962;
+            --gold-light: #e5d4a1;
+            --text-primary: #ffffff;
+            --text-secondary: #b7b7b7;
+            --border: #2a2a2a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 96px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        a {
+            color: var(--gold-light);
+        }
+
+        a:focus-visible,
+        .language-nav a:focus-visible {
+            outline: 2px solid var(--gold-light);
+            outline-offset: 4px;
+        }
+
+        .site-header {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+
+        .site-header-inner,
+        main,
+        .site-footer-inner {
+            width: min(100% - 40px, 940px);
+            margin: 0 auto;
+        }
+
+        .site-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            min-height: 104px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            min-width: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .home-nav {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .home-nav a,
+        .language-nav a {
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            padding: 9px 13px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .home-nav a:hover,
+        .language-nav a:hover {
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .language-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 10, 10, 0.96);
+            backdrop-filter: blur(10px);
+        }
+
+        main {
+            padding: 56px 0 72px;
+        }
+
+        .policy {
+            padding: 48px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            overflow-wrap: anywhere;
+        }
+
+        .policy + .policy {
+            margin-top: 48px;
+        }
+
+        .policy-header {
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 34px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            color: var(--gold-light);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(2rem, 6vw, 3.3rem);
+            font-weight: 600;
+            line-height: 1.15;
+        }
+
+        .effective-date {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 0.93rem;
+        }
+
+        h2 {
+            margin: 38px 0 12px;
+            color: var(--gold-light);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.38rem;
+            line-height: 1.35;
+        }
+
+        p {
+            margin: 0 0 18px;
+            color: #e5e5e5;
+        }
+
+        ul {
+            margin: 0 0 20px;
+            padding-left: 1.4rem;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 0.25rem;
+            color: #e5e5e5;
+        }
+
+        li::marker {
+            color: var(--gold);
+        }
+
+        .contact {
+            padding: 20px;
+            border-left: 3px solid var(--gold);
+            background: var(--bg-card);
+            overflow-wrap: anywhere;
+        }
+
+        .contact p:last-child {
+            margin-bottom: 0;
+        }
+
+        .site-footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-primary);
+        }
+
+        .site-footer-inner {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 28px 0;
+        }
+
+        .site-footer a {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 680px) {
+            .site-header-inner {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 22px 0;
+            }
+
+            .brand {
+                width: 100%;
+            }
+
+            .brand-name {
+                flex: 1;
+                font-size: 0.84rem;
+                letter-spacing: 0.08em;
+                line-height: 1.4;
+            }
+
+            .home-nav {
+                justify-content: flex-start;
+            }
+
+            .language-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+
+            main {
+                padding: 28px 0 48px;
+            }
+
+            .policy {
+                padding: 28px 22px;
+            }
+
+            .policy + .policy {
+                margin-top: 28px;
+            }
+        }
+
+        @media print {
+            body,
+            .policy {
+                background: #ffffff;
+                color: #000000;
+            }
+
+            .site-header,
+            .language-nav,
+            .site-footer {
+                display: none;
+            }
+
+            .policy {
+                border: 0;
+                padding: 0;
+            }
+
+            .policy + .policy {
+                break-before: page;
+            }
+
+            h1,
+            h2,
+            p,
+            li,
+            .effective-date {
+                color: #000000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="brand" href="../" aria-label="New Creation Era Limited homepage">
+                <img src="../logo.png" alt="New Creation Era Limited">
+                <span class="brand-name">New Creation Era Limited</span>
+            </a>
+            <nav class="home-nav" aria-label="Homepage navigation">
+                <a href="../">返回首頁</a>
+                <a href="../index-en.html">Back to homepage</a>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="language-nav" aria-label="Language navigation">
+        <a href="#zh-HK" lang="zh-HK">繁體中文</a>
+        <a href="#en" lang="en">English</a>
+    </nav>
+
+    <main>
+        <article class="policy" id="zh-HK" lang="zh-HK">
+            <header class="policy-header">
+                <h1>私隱政策</h1>
+                <p class="effective-date">生效日期：2026年9月16日 版本：1.0</p>
+            </header>
+
+            <p>New Creation Era Limited（「本公司」、「我們」）重視客戶及使用者的個人資料私隱。本私隱政策說明我們在提供跨境及本地接送、包車、司機及相關預約服務，以及透過本公司網站、WhatsApp及其他獲授權通訊渠道提供服務時，如何收集、使用、處理、保存及保護個人資料。</p>
+            <p>我們會按照香港《個人資料（私隱）條例》（第486章）及其他適用的私隱及資料保障要求處理個人資料。</p>
+
+            <h2>我們可能收集的資料</h2>
+            <p>視乎你使用的服務及向我們提供的資料，我們可能收集：</p>
+            <ul>
+                <li>姓名及聯絡資料，例如電話號碼及WhatsApp識別資料；</li>
+                <li>預約及行程資料，例如日期、時間、乘客人數、航班資料、上車及下車地點、目的地、服務類型及特別要求；</li>
+                <li>與報價、應收款項、附加服務、代墊費用及其他與行程相關的交易資料；</li>
+                <li>在提供服務所需的情況下，司機、車輛及行程執行資料；</li>
+                <li>你透過WhatsApp、網站表格或其他獲授權渠道向我們提供的訊息、文件或其他內容；</li>
+                <li>技術及安全資料，例如訊息識別碼、時間戳、來源、重複或異常訊息指標，以及為保障系統安全而產生的必要審計紀錄；</li>
+                <li>系統為處理預約而產生的資料，例如個案識別碼、資料抽取結果、缺漏或衝突資料提示及處理狀態。</li>
+            </ul>
+            <p>我們只會收集與提供服務、營運及保障系統安全合理相關的資料。</p>
+
+            <h2>我們如何收集資料</h2>
+            <p>我們可能透過以下方式收集個人資料：</p>
+            <ul>
+                <li>本公司網站及網上預約表格；</li>
+                <li>WhatsApp及Meta WhatsApp服務；</li>
+                <li>電話、電郵及其他獲授權通訊渠道；</li>
+                <li>由你、你的代表、旅行社、企業客戶或其他獲授權人士提供；</li>
+                <li>在提供已預約服務期間產生的必要營運紀錄。</li>
+            </ul>
+
+            <h2>使用資料的目的</h2>
+            <p>我們可能將個人資料用於：</p>
+            <ul>
+                <li>接收、建立、核對及管理預約；</li>
+                <li>安排行程、司機、車輛及相關接送服務；</li>
+                <li>核對客戶或獲授權提交者身份；</li>
+                <li>處理行程變更、附加要求、費用及服務紀錄；</li>
+                <li>就缺漏、不明確或互相衝突的資料向提交者作出澄清；</li>
+                <li>防止重複提交、未經授權存取、欺詐、濫用及重播攻擊；</li>
+                <li>提供客戶服務及處理查詢；</li>
+                <li>進行必要的營運、財務、安全及審計紀錄；</li>
+                <li>改善我們的服務、系統可靠性及資訊安全；</li>
+                <li>遵守適用法律、監管要求及合法要求。</li>
+            </ul>
+            <p>除非法律容許或已取得所需同意，我們不會將個人資料用於與上述目的不相容的新用途。</p>
+
+            <h2>自動化及人工智能輔助處理</h2>
+            <p>為提高預約處理效率及減少人手輸入錯誤，我們可能使用自動化工具及人工智能模型協助理解及整理客戶或獲授權使用者提交的訊息。</p>
+            <p>這些工具可能協助抽取行程資料、識別資料缺漏或衝突、分類服務或費用資料，以及產生澄清問題。</p>
+            <p>我們只會向相關服務供應商提供完成有關處理所合理需要的資料，並採取適當的技術及組織措施保障資料。</p>
+            <p>對於需要確認或可能對預約、財務或服務安排產生重要影響的事項，我們可能要求獲授權人員作進一步確認。</p>
+
+            <h2>資料披露及服務供應商</h2>
+            <p>為提供及支援服務，我們可能在必要範圍內與以下類別的服務供應商或接收者處理或分享資料：</p>
+            <ul>
+                <li>Meta及WhatsApp通訊服務；</li>
+                <li>人工智能及資料處理服務供應商；</li>
+                <li>網站、雲端、網絡及資訊科技基礎設施供應商；</li>
+                <li>參與提供已預約服務的司機、車隊、合作夥伴或服務供應商；</li>
+                <li>專業顧問、保險公司、監管機構、執法機關或其他依法有權取得資料的人士。</li>
+            </ul>
+            <p>我們不會出售個人資料。</p>
+
+            <h2>跨境資料處理</h2>
+            <p>我們使用的部分技術、雲端、通訊或人工智能服務可能在香港境外處理或儲存資料。</p>
+            <p>在適用情況下，我們會採取合理措施，包括適當的合約、存取控制及技術保障，以保護跨境處理的個人資料。</p>
+
+            <h2>資料保留</h2>
+            <p>我們只會在達成收集目的、提供服務、處理爭議、維持必要營運或財務紀錄，以及履行法律或監管責任所合理需要的期間保存個人資料。</p>
+            <p>不同類別資料可能有不同保留期限。當資料不再合理需要時，我們會按照適用政策及法律要求刪除、匿名化或以其他安全方式處理。</p>
+
+            <h2>資訊安全</h2>
+            <p>我們採取合理及適當的技術和組織措施保障個人資料，包括視乎系統及服務需要使用：</p>
+            <ul>
+                <li>HTTPS及加密通訊；</li>
+                <li>身份及存取控制；</li>
+                <li>最小權限原則；</li>
+                <li>安全憑證及秘密資料管理；</li>
+                <li>訊息來源及完整性驗證；</li>
+                <li>重複及重播防護；</li>
+                <li>系統及安全審計措施。</li>
+            </ul>
+            <p>然而，任何電子傳輸或儲存方式均不能保證絕對安全。</p>
+
+            <h2>第三方個人資料</h2>
+            <p>如你代表乘客、客戶、聯絡人或其他人士向我們提供其個人資料，你應確保你有適當權限提供該等資料，並在需要時已向相關人士提供適當通知或取得所需同意。</p>
+
+            <h2>你的權利</h2>
+            <p>在適用法律及相關例外情況下，你可以就我們持有的個人資料提出查閱及更正要求。</p>
+            <p>你亦可以就個人資料的使用、保留、刪除、停止使用或其他私隱事項向我們提出查詢或要求。我們會按照適用法律及實際情況處理有關要求。</p>
+
+            <h2>第三方服務</h2>
+            <p>本公司的網站或通訊服務可能依賴或連接第三方服務。第三方服務可能受其自身私隱政策及條款約束，本公司建議使用者在適當情況下查閱有關政策。</p>
+
+            <h2>本政策的更新</h2>
+            <p>我們可能因服務、技術、法律或營運安排改變而更新本私隱政策。</p>
+            <p>如有重大變更，我們會在適當渠道發布更新版本。本頁所示生效日期及版本會反映最新政策。</p>
+
+            <h2>聯絡我們</h2>
+            <div class="contact">
+                <p>如你對本私隱政策、個人資料處理方式或你的資料權利有任何查詢，請聯絡：</p>
+                <p>New Creation Era Limited Email: isabel@newcreationera.com.hk Website: www.newcreationera.com.hk</p>
+            </div>
+        </article>
+
+        <article class="policy" id="en" lang="en">
+            <header class="policy-header">
+                <h1>Privacy Policy</h1>
+                <p class="effective-date">Effective Date: 16 September 2026 Version: 1.0</p>
+            </header>
+
+            <p>New Creation Era Limited (“NCE”, “we”, “us” or “our”) respects the privacy of our customers and users. This Privacy Policy explains how we collect, use, process, retain and protect personal data when providing cross-border and local transportation, chauffeur, vehicle booking and related services, including services provided through our website, WhatsApp and other authorised communication channels.</p>
+            <p>We process personal data in accordance with the Personal Data (Privacy) Ordinance (Cap. 486) of Hong Kong and other applicable privacy and data protection requirements.</p>
+
+            <h2>Information We May Collect</h2>
+            <p>Depending on the services you use and the information you provide, we may collect:</p>
+            <ul>
+                <li>Name and contact information, including telephone number and WhatsApp identifiers;</li>
+                <li>Booking and journey information, including date, time, passenger count, flight details, pickup and drop-off locations, destination, service type and special requests;</li>
+                <li>Information relating to quotations, amounts receivable, additional services, reimbursable expenses and other journey-related transactions;</li>
+                <li>Driver, vehicle and trip-performance information where required to provide the service;</li>
+                <li>Messages, documents or other content you submit through WhatsApp, website forms or other authorised channels;</li>
+                <li>Technical and security information such as message identifiers, timestamps, source information, duplicate or anomalous message indicators and necessary security audit records;</li>
+                <li>Information generated in connection with booking processing, such as case identifiers, extracted booking information, missing or conflicting data indicators and processing status.</li>
+            </ul>
+            <p>We seek to collect only information reasonably relevant to providing our services, operating our business and protecting our systems.</p>
+
+            <h2>How We Collect Information</h2>
+            <p>We may collect personal data through:</p>
+            <ul>
+                <li>Our website and online booking forms;</li>
+                <li>WhatsApp and Meta WhatsApp services;</li>
+                <li>Telephone, email and other authorised communication channels;</li>
+                <li>You, your representative, travel agencies, corporate customers or other authorised persons;</li>
+                <li>Necessary operational records generated while providing booked services.</li>
+            </ul>
+
+            <h2>How We Use Personal Data</h2>
+            <p>We may use personal data to:</p>
+            <ul>
+                <li>Receive, create, verify and manage bookings;</li>
+                <li>Arrange journeys, drivers, vehicles and related transportation services;</li>
+                <li>Verify customers or authorised submitters;</li>
+                <li>Process trip changes, additional requests, charges and service records;</li>
+                <li>Seek clarification where submitted information is missing, ambiguous or conflicting;</li>
+                <li>Prevent duplicate submissions, unauthorised access, fraud, misuse and replay attacks;</li>
+                <li>Provide customer support and respond to enquiries;</li>
+                <li>Maintain necessary operational, financial, security and audit records;</li>
+                <li>Improve service quality, system reliability and information security;</li>
+                <li>Comply with applicable laws, regulatory requirements and lawful requests.</li>
+            </ul>
+            <p>Unless permitted by law or the required consent has been obtained, we will not use personal data for a new purpose incompatible with those described above.</p>
+
+            <h2>Automated and Artificial Intelligence Assisted Processing</h2>
+            <p>To improve booking efficiency and reduce manual data-entry errors, we may use automated tools and artificial intelligence models to assist in understanding and organising messages submitted by customers or authorised users.</p>
+            <p>These tools may assist with extracting journey information, identifying missing or conflicting information, classifying service or expense information and generating clarification questions.</p>
+            <p>We provide relevant service providers only with information reasonably necessary for the applicable processing and apply appropriate technical and organisational safeguards.</p>
+            <p>Where confirmation is required or a matter may materially affect a booking, financial record or service arrangement, further confirmation by authorised personnel may be required.</p>
+
+            <h2>Disclosure and Service Providers</h2>
+            <p>Where necessary to provide and support our services, personal data may be processed by or shared with categories of recipients including:</p>
+            <ul>
+                <li>Meta and WhatsApp communication services;</li>
+                <li>Artificial intelligence and data-processing service providers;</li>
+                <li>Website, cloud, network and information technology infrastructure providers;</li>
+                <li>Drivers, fleet operators, partners or service providers involved in fulfilling booked services;</li>
+                <li>Professional advisers, insurers, regulators, law-enforcement authorities or other persons legally entitled to receive the information.</li>
+            </ul>
+            <p>We do not sell personal data.</p>
+
+            <h2>Cross-Border Processing</h2>
+            <p>Some technology, cloud, communication or artificial intelligence services we use may process or store information outside Hong Kong.</p>
+            <p>Where applicable, we take reasonable measures, which may include appropriate contractual protections, access controls and technical safeguards, to protect personal data processed across borders.</p>
+
+            <h2>Data Retention</h2>
+            <p>We retain personal data only for as long as reasonably necessary to fulfil the purposes for which it was collected, provide services, handle disputes, maintain necessary operational or financial records, and comply with legal or regulatory obligations.</p>
+            <p>Different categories of information may be subject to different retention periods. When information is no longer reasonably required, we will delete, anonymise or otherwise securely handle it in accordance with applicable policies and legal requirements.</p>
+
+            <h2>Information Security</h2>
+            <p>We apply reasonable and appropriate technical and organisational safeguards to protect personal data. Depending on the relevant system and service, these may include:</p>
+            <ul>
+                <li>HTTPS and encrypted communications;</li>
+                <li>Identity and access controls;</li>
+                <li>Least-privilege access;</li>
+                <li>Secure credential and secret management;</li>
+                <li>Message-source and integrity verification;</li>
+                <li>Duplicate and replay protection;</li>
+                <li>System and security auditing measures.</li>
+            </ul>
+            <p>No method of electronic transmission or storage can, however, be guaranteed to be completely secure.</p>
+
+            <h2>Personal Data About Other People</h2>
+            <p>If you provide personal data to us on behalf of passengers, customers, contacts or other individuals, you should ensure that you have appropriate authority to provide that information and, where required, have given the relevant notices or obtained the necessary consent.</p>
+
+            <h2>Your Rights</h2>
+            <p>Subject to applicable law and relevant exceptions, you may request access to and correction of personal data we hold about you.</p>
+            <p>You may also contact us regarding the use, retention, deletion, cessation of use or other privacy matters concerning your personal data. We will handle such requests in accordance with applicable law and the circumstances of the request.</p>
+
+            <h2>Third-Party Services</h2>
+            <p>Our website or communication services may rely on or connect to third-party services. Those services may be subject to their own privacy policies and terms, which users should review where appropriate.</p>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this Privacy Policy to reflect changes in our services, technology, legal requirements or operational arrangements.</p>
+            <p>Where changes are material, we will publish an updated version through appropriate channels. The effective date and version shown on this page will identify the current policy.</p>
+
+            <h2>Contact Us</h2>
+            <div class="contact">
+                <p>For enquiries regarding this Privacy Policy, our handling of personal data or your data rights, please contact:</p>
+                <p>New Creation Era Limited Email: isabel@newcreationera.com.hk Website: www.newcreationera.com.hk</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <a href="../">返回首頁</a>
+            <a href="../index-en.html">Back to homepage</a>
+        </div>
+    </footer>
+</body>
+</html>
